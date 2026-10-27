@@ -5,12 +5,17 @@ Optional:
     - catalog_id
     - display_name
     - object_id
+    - timeouts (block):
+        - read (optional)
 EOT
 
   type = map(object({
     catalog_id   = optional(string)
     display_name = optional(string)
     object_id    = optional(string)
+    timeouts = optional(object({
+      read = optional(string)
+    }))
   }))
   validation {
     condition = alltrue([
